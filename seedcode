@@ -1,0 +1,27 @@
+folder('student') {
+    displayName('student project')
+    description('folder for student proj jobs')
+}
+
+pipelineJob('student/testpipeline_converted') {  
+  configure { flowdefinition ->    
+    flowdefinition << delegate.'definition'(class:'org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition',plugin:'workflow-cps') {      
+      'scm'(class:'hudson.plugins.git.GitSCM',plugin:'git') {        
+        'configVersion'(2)        
+        'userRemoteConfigs' {          
+          'hudson.plugins.git.UserRemoteConfig' {            
+            'url'('https://github.com/satyamanasala/studentapp-code.git')            
+            'credentialsId'('a01ea52a-5aed-4a8a-8044-670947b48a08')            
+          }          
+        }        
+        'branches' {          
+          'hudson.plugins.git.BranchSpec' {            
+            'name'('*/master')            
+          }          
+        }              
+      }      
+      'scriptPath'('Jenkinsfile')      
+      'lightweight'(true)      
+    }    
+  }  
+}
