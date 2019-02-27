@@ -15,7 +15,7 @@ pipelineJob('student/testpipeline_converted') {
         'configVersion'(2)        
         'userRemoteConfigs' {          
           'hudson.plugins.git.UserRemoteConfig' {            
-            'url'('https://github.com/satyamanasala/studentapp-code.git')            
+            'url'('https://github.com/satyamanasala/jenkins-code.git')            
             'credentialsId'('a01ea52a-5aed-4a8a-8044-670947b48a08')            
           }          
         }        
@@ -25,7 +25,7 @@ pipelineJob('student/testpipeline_converted') {
           }          
         }              
       }      
-      'scriptPath'('Jenkinsfile')      
+      'scriptPath'('jenkinscode')      
       'lightweight'(true)      
     }    
   }  
